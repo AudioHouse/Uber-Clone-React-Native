@@ -12,5 +12,13 @@ You need Node.js installed on your machine. Then you can use npm or yarn to inst
 ```
 npm install -g expo-cli
 ```
+#### Step 3: Configure Environment Vars
+You will need a *Google API Key* that has access to the `Directions`, `Places`, and `Distance Matrix` APIs. 
+
+Create a `.env` file at the root of the project, and then add in the following: 
+```
+GOOGLE_MAPS_APIKEY=<Your-Google-API-Key>
+```
+#### Step 4: Run Project
 Simply `cd` into the project directory and run `npm install` and then `npm start`
 Lastly, you can press `i` to launch the application on the iPhone Simulator
