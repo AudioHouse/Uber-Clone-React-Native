@@ -22,6 +22,9 @@ const HomeScreen = () => {
           styles={{
             container: {
               flex: 0,
+              borderWidth: 1,
+              borderRadius: 5,
+              borderColor: "lightgrey",
             },
             textInput: {
               fontSize: 18,
@@ -32,6 +35,7 @@ const HomeScreen = () => {
             language: "en",
           }}
           onPress={(data, details = null) => {
+            console.log(details.geometry.location);
             dispatch(
               setOrigin({
                 location: details.geometry.location,
