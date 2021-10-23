@@ -22,6 +22,12 @@ const NavigateCard = () => {
 
   return (
     <SafeAreaView style={tw`bg-white flex-1`}>
+      <TouchableOpacity
+          style={tw`z-50 absolute top-3.5 left-3.5 p-2 bg-gray-200 rounded-full`}
+          onPress={() => navigation.goBack()}
+        >
+          <Icon name="chevron-left" type="fontawesome" color="black" />
+        </TouchableOpacity>
       <Text style={tw`text-center py-5 text-xl`}>Good Afternoon, Austin</Text>
       <View style={tw`border-t border-gray-200 flex-shrink`}>
         <View>
