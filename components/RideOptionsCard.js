@@ -39,7 +39,7 @@ const SURGE_CHARGE_RATE = 1.95;
 
 const RideOptionsCard = () => {
   const navigation = useNavigation();
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState(data[0]);
   const travelInfo = useSelector(selectTravelTimeInformation);
 
   return (
@@ -62,9 +62,9 @@ const RideOptionsCard = () => {
         renderItem={({ item }) => (
           <TouchableOpacity
             style={tw`flex-row items-center justify-between px-10 ${
-              item.id === selected && "bg-gray-200"
+              item === selected && "bg-gray-200"
             }`}
-            onPress={() => setSelected(item.id)}
+            onPress={() => setSelected(item)}
           >
             <Image
               style={{ width: 90, height: 90, resizeMode: "contain" }}
@@ -72,9 +72,9 @@ const RideOptionsCard = () => {
             />
             <View style={tw`-ml-6`}>
               <Text style={tw`text-xl font-semibold`}>{item.title}</Text>
-              <Text>Travel Time: {travelInfo?.duration.text}</Text>
+              <Text style={item === selected && {color: "#3881f5"}}>{travelInfo?.duration.text}</Text>
             </View>
-            <Text style={tw`text-xl`}>
+            <Text style={tw`text-xl pb-4`}>
               {new Intl.NumberFormat("en-us", {
                 style: "currency",
                 currency: "USD",
@@ -94,8 +94,8 @@ const RideOptionsCard = () => {
           disabled={!selected}
           style={tw`bg-black py-3 m-3 ${!selected && "bg-gray-200"}`}
         >
-          <Text style={[tw`text-white text-center`, { fontSize: 16 }]}>
-            Confirm Ride
+          <Text style={[tw`text-white text-center`, { fontSize: 20 }]}>
+            Confirm {selected.title}
           </Text>
         </TouchableOpacity>
       </View>
