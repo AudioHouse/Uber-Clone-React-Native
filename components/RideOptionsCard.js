@@ -17,13 +17,13 @@ import { selectTravelTimeInformation } from "../slices/navSlice";
 const data = [
   {
     id: "Uber-X-123",
-    title: "UberX",
+    title: "UberX     ",
     multiplier: 1,
     image: "https://links.papareact.com/3pn",
   },
   {
     id: "Uber-XL-456",
-    title: "UberXL",
+    title: "UberXL  ",
     multiplier: 1.64,
     image: "https://links.papareact.com/5w8",
   },
@@ -61,7 +61,7 @@ const RideOptionsCard = () => {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <TouchableOpacity
-            style={tw`flex-row items-center justify-between px-10 ${
+            style={tw`flex-row justify-between items-center px-10 ${
               item === selected && "bg-gray-200"
             }`}
             onPress={() => setSelected(item)}
@@ -95,7 +95,7 @@ const RideOptionsCard = () => {
           style={tw`bg-black py-3 m-3 ${!selected && "bg-gray-200"}`}
         >
           <Text style={[tw`text-white text-center`, { fontSize: 20 }]}>
-            Confirm {selected.title}
+            Confirm {selected.title.trim()}
           </Text>
         </TouchableOpacity>
       </View>
