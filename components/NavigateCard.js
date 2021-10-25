@@ -10,8 +10,12 @@ import {
 
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { GOOGLE_MAPS_APIKEY } from "@env";
-import { useDispatch } from "react-redux";
-import { setDestination, setOrigin } from "../slices/navSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectDestination,
+  setDestination,
+  setOrigin,
+} from "../slices/navSlice";
 import { useNavigation } from "@react-navigation/core";
 import NavFavorites from "./NavFavorites";
 import { Icon } from "react-native-elements";
@@ -19,6 +23,7 @@ import { Icon } from "react-native-elements";
 const NavigateCard = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
+  const destination = useSelector(selectDestination);
 
   return (
     <SafeAreaView style={tw`bg-white flex-1`}>
@@ -53,17 +58,34 @@ const NavigateCard = () => {
 
       <View style={tw`bg-white py-2 mt-auto flex-row justify-evenly`}>
         <TouchableOpacity
-        onPress={() => navigation.navigate("RideOptionsCard")} 
-          style={tw`bg-black flex flex-row w-1/3 px-4 py-3 justify-center rounded-full`}
+          disabled={!destination}
+          onPress={() => navigation.navigate("RideOptionsCard")}
+          style={tw`bg-black flex flex-row w-1/3 px-4 py-3 justify-center rounded-full ${
+            !destination && `bg-gray-200`
+          }`}
         >
           <Icon name="car" type="font-awesome" color="white" size={16} />
           <Text style={tw`text-white text-center ml-3`}>Rides</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={tw`bg-white flex flex-row w-1/3 px-4 py-3 justify-center rounded-full border border-black`}
+          disabled={!destination}
+          style={tw`bg-white flex flex-row w-1/3 px-4 py-3 justify-center rounded-full border border-black ${
+            !destination && `border-gray-200`
+          }`}
         >
-          <Icon name="fast-food" type="ionicon" color="black" size={16} />
-          <Text style={tw`text-black text-center ml-2`}>Eats</Text>
+          <Icon
+            name="fast-food"
+            type="ionicon"
+            color={!destination ? "lightgray" : "black"}
+            size={16}
+          />
+          <Text
+            style={tw`text-black text-center ml-2 ${
+              !destination && `text-gray-300`
+            }`}
+          >
+            Eats
+          </Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
