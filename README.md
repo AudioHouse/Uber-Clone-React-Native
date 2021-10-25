@@ -22,3 +22,10 @@ Simply `cd` into the project directory and run `npm install`
 
 ## Running the Project
 You can use either `npm start` or `expo start` to start the metro bundler. Lastly, you can press `i` to launch the application on the iPhone Simulator
+
+## Screenshots
+#### HomeScreen with GooglePlaces AutoComplete
+<img src="/docs/screenshots/Home-Screen-1.png" alt="HomeScreen1" width="300"/> <img src="/docs/screenshots/Home-Screen-2.png" alt="HomeScreen2" width="300"/>
+
+#### MapScreen with Price Calculations
+<img src="/docs/screenshots/Map-Screen-1.png" alt="MapScreen1" width="300"/> <img src="/docs/screenshots/Map-Screen-2.png" alt="MapScreen2" width="300"/>
