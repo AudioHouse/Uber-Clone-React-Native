@@ -72,14 +72,14 @@ const RideOptionsCard = () => {
             />
             <View style={tw`-ml-6`}>
               <Text style={tw`text-xl font-semibold`}>{item.title}</Text>
-              <Text style={item === selected && {color: "#3881f5"}}>{travelInfo?.duration.text}</Text>
+              <Text style={item === selected && {color: "#3881f5"}}>{travelInfo?.duration?.text}</Text>
             </View>
             <Text style={tw`text-xl pb-4`}>
               {new Intl.NumberFormat("en-us", {
                 style: "currency",
                 currency: "USD",
               }).format(
-                (travelInfo?.duration.value *
+                (travelInfo?.duration?.value *
                   SURGE_CHARGE_RATE *
                   item.multiplier) /
                   100
